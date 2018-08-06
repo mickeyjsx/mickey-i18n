@@ -1,0 +1,68 @@
+{
+  "name": "mickey-i18n",
+  "version": "1.0.0",
+  "description": "i18n client work with babel-plugin-mickey-i18n",
+  "main": "./lib/Provider.js",
+  "keywords": [
+    "mickey",
+    "i18n"
+  ],
+  "author": {
+    "name": "bubkoo",
+    "email": "bubkoo.wy@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mickeyjsx/mickey-i18n.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mickeyjsx/mickey-i18n/issues"
+  },
+  "homepage": "https://github.com/mickeyjsx/mickey-i18n#readme",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js,.jsx src",
+    "build": "rimraf lib && babel src --out-dir lib",
+    "prebuild": "npm run lint",
+    "prepublish": "npm run build",
+    "precommit": "npm run lint"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.55",
+    "@babel/core": "^7.0.0-beta.55",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.56",
+    "@babel/preset-env": "^7.0.0-beta.55",
+    "@babel/preset-react": "^7.0.0-beta.56",
+    "babel-eslint": "^8.2.6",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "eslint": "^5.2.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "husky": "^0.14.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "rimraf": "^2.6.2"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "prop-types": "*"
+  },
+  "dependencies": {
+    "intl-format-cache": "^2.1.0",
+    "intl-messageformat": "^2.2.0",
+    "invariant": "^2.2.4",
+    "lodash.isfunction": "^3.0.9",
+    "lodash.isregexp": "^4.0.1",
+    "react-intl": "^2.4.0",
+    "warning": "^4.0.1"
+  }
+}
