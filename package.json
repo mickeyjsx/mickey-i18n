@@ -1,7 +1,7 @@
 {
   "name": "mickey-i18n",
   "version": "1.0.0",
-  "description": "i18n client work with babel-plugin-mickey-i18n",
+  "description": "I18n client work with babel-plugin-mickey-i18n-scanner",
   "main": "./lib/Provider.js",
   "keywords": [
     "mickey",
@@ -24,11 +24,10 @@
     "lib"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.jsx src",
     "build": "rimraf lib && babel src --out-dir lib",
     "prebuild": "npm run lint",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "precommit": "npm run lint"
   },
   "devDependencies": {

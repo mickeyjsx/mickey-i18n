@@ -1,0 +1,18 @@
+{
+  "presets": [
+    "es2015",
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    "add-module-exports",
+    "transform-runtime",
+    [
+      "mickey-i18n-scanner",
+      {
+        "dest": "./i18n_messages",
+        "debug": true
+      }
+    ]
+  ]
+}
