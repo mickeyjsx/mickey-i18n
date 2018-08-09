@@ -2,8 +2,8 @@
 /* eslint-disable react/destructuring-assignment */
 
 import React from 'react'
-import I18nProvider from 'mickey-i18n'
 import { LocaleProvider, Select } from 'antd'
+import getProvider from 'mickey-i18n'
 import antdEn from 'antd/lib/locale-provider/en_US'
 import localEn from 'react-intl/locale-data/en'
 import localZh from 'react-intl/locale-data/zh'
@@ -40,11 +40,12 @@ export default class App extends React.Component {
     this.setState({ lang })
   }
 
+
   render() {
     const { lang } = this.state
     const region = lang.toLowerCase().split(/[_-]+/)[0]
     const locales = langs[region] || langs[lang] || langs.zh
-
+    const I18nProvider = getProvider(region, langs)
     return (
       <LocaleProvider locale={locales.antd}>
         <I18nProvider lang={region} locales={langs}>

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import IntlMessageFormat from 'intl-messageformat'
 import memoizeFormatConstructor from 'intl-format-cache'
-import { IntlProvider, FormattedMessage, addLocaleData } from 'react-intl'
+import { IntlProvider, addLocaleData } from 'react-intl'
 import GlobalI18n, { isAvailable, formatMessage } from './GlobalI18n'
 
 let getMessage = null
@@ -13,7 +13,7 @@ const getValuesAsObject = (values = []) => values.reduce((memo, text, index) => 
 }), {})
 
 
-export default class Provider extends React.Component {
+class Provider extends React.Component {
   static propTypes = {
     lang: PropTypes.string.isRequired,
     locales: PropTypes.objectOf(PropTypes.shape({
@@ -30,8 +30,6 @@ export default class Provider extends React.Component {
     if (locale && locale.data) {
       addLocaleData([...locale.data])
     }
-
-    getMessage = id => locale.messages[id]
   }
 
   render() {
@@ -49,17 +47,11 @@ export default class Provider extends React.Component {
   }
 }
 
-export function i18n(id, defaultMessage, values, renderAsComponent) {
+export function i18n(id, defaultMessage, values) {
   const hasValues = values && Object.keys(values).length > 0
   const valueObj = hasValues ? getValuesAsObject(values) : {}
 
-  if (renderAsComponent) {
-    return React.createElement(FormattedMessage, {
-      id,
-      defaultMessage,
-      values: valueObj,
-    })
-  } if (isAvailable()) {
+  if (isAvailable()) {
     return formatMessage({
       id,
       defaultMessage,
@@ -73,4 +65,11 @@ export function i18n(id, defaultMessage, values, renderAsComponent) {
   }
 
   return message
+}
+
+
+export default function getProvider(lang, locales) {
+  const locale = locales[lang]
+  getMessage = id => locale.messages[id]
+  return Provider
 }
