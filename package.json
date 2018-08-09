@@ -1,6 +1,6 @@
 {
   "name": "mickey-i18n",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "I18n client work with babel-plugin-mickey-i18n-scanner",
   "main": "./lib/Provider.js",
   "keywords": [

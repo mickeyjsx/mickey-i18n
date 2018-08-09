@@ -68,8 +68,7 @@ export function i18n(id, defaultMessage, values) {
 }
 
 
-export default function getProvider(lang, locales) {
-  const locale = locales[lang]
+export default function getProvider(locale) {
   getMessage = id => locale.messages[id]
   return Provider
 }
