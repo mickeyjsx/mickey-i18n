@@ -13,7 +13,7 @@ const getValuesAsObject = (values = []) => values.reduce((memo, text, index) => 
 }), {})
 
 
-class Provider extends React.Component {
+export class Provider extends React.Component {
   static propTypes = {
     lang: PropTypes.string.isRequired,
     locales: PropTypes.objectOf(PropTypes.shape({
@@ -66,7 +66,6 @@ export function i18n(id, defaultMessage, values) {
 
   return message
 }
-
 
 export default function getProvider(lang, locales) {
   const locale = locales[lang]
